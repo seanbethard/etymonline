@@ -22,7 +22,7 @@ class EtymonlineSpider(CrawlSpider):
         for dt in all_dt:
             entry = Etymology()
             entry['word'] = dt.xpath('.//a[1]/text()').extract()
-            entry['origin'] = dt.xpath('./following-sibling::dd[1]/text()').extract()
+            entry['origin'] = dt.xpath('./following-sibling::dd[1]//text()').extract()
 
             results.append(entry)
 
