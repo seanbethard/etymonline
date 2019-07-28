@@ -1,6 +1,6 @@
-from scrapy.selector import HtmlXPathSelector
-from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
-from scrapy.contrib.spiders import CrawlSpider, Rule
+from scrapy.selector import Selector
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
 
 from etymonline_scraper.items import Etymology
 
@@ -10,10 +10,10 @@ class EtymonlineSpider(CrawlSpider):
                        "www.etymonline.com"
     ]
     start_urls = ["http://www.etymonline.com/index.php"]
-    rules = [Rule(SgmlLinkExtractor(allow=()), "parse_entry", follow=True)]
+    rules = [Rule(LinkExtractor(allow=()), "parse_entry", follow=True)]
 
     def parse_entry(self, response):
-        sel = HtmlXPathSelector(response)
+        sel = Selector(response)
 
         all_dt = sel.xpath('//dt')
 
