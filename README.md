@@ -1,8 +1,20 @@
 Online Etymology Dictionary Scraper
 ===================================
 
-It works! I have plans for building an HMM capable of recognizing language of origin from a word's orthographical form.
+A spider that crawls [etymonline.com](https://www.etymonline.com).
 
-After you have scrapy installed you can run it with the following command while in the project directory. This will create a large JSON file of word and origins pairs.
+forked from @kyleroot
 
-    scrapy crawl etymonline.com -o etymonline_data.json -t json
+```
+class Etymology(Item):
+    word = Field()
+    origin = Field()
+``` 
+
+Example usage with [Scrapy](https://docs.scrapy.org/en/latest/topics/commands.html#command-line-tool):
+```
+python3 -m venv etymonline
+. bin/activate.fish
+pip install -r requirements.txt
+scrapy crawl etymonline.com -o data.json -t json
+```
