@@ -1,7 +1,7 @@
 Online Etymology Dictionary Scraper
 ===================================
 
-A spider that crawls [etymonline.com](https://www.etymonline.com).
+A spider that crawls [Online Etymology Dictionary](https://www.etymonline.com).
 
 forked from @kyleroot
 
